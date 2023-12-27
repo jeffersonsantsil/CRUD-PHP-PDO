@@ -1,0 +1,33 @@
+body {
+    /* background-color: rgb(255, 255, 255); */
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.geral {
+    display: flex;
+    margin: 20px 20px;
+}
+
+.erros {
+    width: auto;
+    margin: 20px;
+    height: 100px;
+}
+
+#dados {
+    background-color: rgb(208, 236, 236);
+    width: 30%;
+
+}
+
+#table {
+    background-color: rgb(235, 253, 253);
+    width: 70%;
+    margin-left: 1%;
+    border-radius: 1%;
+
+}
