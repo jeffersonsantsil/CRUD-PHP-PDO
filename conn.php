@@ -58,6 +58,6 @@ function passwordCryp($value)
 
 //----------------------- DELETAR USUÁRIO ---------------------------//
 
-function deleteUser($values){
+// function deleteUser($values){
 
-}
+// }
