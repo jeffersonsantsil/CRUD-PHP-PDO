@@ -5,6 +5,9 @@ if ($_POST) {
     if ($_POST['function'] == "cadUser") {
         cadUser($_POST);
     }
+    if ($_POST['function'] == "deleteUser") {
+        deleteUser($_POST);
+    }
 } else {
     echo "Formulario vazio";
 }
@@ -54,3 +57,7 @@ function passwordCryp($value)
 }
 
 //----------------------- DELETAR USUÁRIO ---------------------------//
+
+function deleteUser($values){
+
+}
