@@ -81,3 +81,32 @@ function editUser($id, $campo, $valor)
     $dados->execute();
 
 }
+
+//----------------------- BUSCAR USUÁRIOS ---------------------------//
+
+// echo "<pre>";
+// print_r(showUsers());  //Teste de buscar de todos os usuários cadastrados no banco
+// echo "</pre>";
+
+function showUsers(){
+    $conn = connBanco();
+    $dados = $conn->prepare("SELECT * FROM users ");
+    $dados->execute();
+    $usersList = $dados->fetchAll();
+    return $usersList;
+}
+
+//----------------------- BUSCAR USUÁRIO ---------------------------//
+
+// echo "<pre>";
+// print_r(showUser(4)); //Teste de busca apenas um usuário específico
+// echo "</pre>";
+
+function showUser($id){
+    $conn = connBanco();
+    $dados = $conn->prepare("SELECT * FROM users WHERE id = :id");
+    $dados->bindValue(":id", $id);
+    $dados->execute();
+    $userFind = $dados->fetch();
+    return $userFind;
+}
