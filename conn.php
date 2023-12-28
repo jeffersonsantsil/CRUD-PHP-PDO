@@ -1,16 +1,16 @@
 <?php
 
 
-// if ($_POST) {
-//     if ($_POST['function'] == "cadUser") {
-//         cadUser($_POST);
-//     }
-//     if ($_POST['function'] == "deleteUser") {
-//         deleteUser($_POST);
-//     }
-// } else {
-//     echo "Formulario vazio";
-// }
+if ($_POST) {
+    if ($_POST['function'] == "cadUser") {
+        cadUser($_POST);
+    }
+    if ($_POST['function'] == "deleteUser") {
+        deleteUser($_POST);
+    }
+} else {
+    echo "Formulario vazio";
+}
 
 function connBanco()
 {
@@ -32,42 +32,38 @@ function connBanco()
 }
 
 
-// //----------------------- CADASTRAR USUÁRIO---------------------------//
-// function cadUser($values)
-// {
-//     if (!$values == null) {
-//         $conn = connBanco();
-//         $dados = $conn->prepare("INSERT INTO users(name, email, userName, password) VALUES (:name, :email, :userName, :password)");
-//         $dados->bindValue(":name", $values["name"]);
-//         $dados->bindValue(":email", $values["email"]);
-//         $dados->bindValue(":userName", $values["userName"]);
-//         $dados->bindValue(":password", passwordCryp($values['password']));
-//         $dados->execute();
-//         echo "Cadastrado com Sucesso!";
-//     }
-// }
+//----------------------- CADASTRAR USUÁRIO---------------------------//
+function cadUser($values)
+{
+    if (!$values == null) {
+        $conn = connBanco();
+        $dados = $conn->prepare("INSERT INTO users(name, email, userName, password) VALUES (:name, :email, :userName, :password)");
+        $dados->bindValue(":name", $values["name"]);
+        $dados->bindValue(":email", $values["email"]);
+        $dados->bindValue(":userName", $values["userName"]);
+        $dados->bindValue(":password", passwordCryp($values['password']));
+        $dados->execute();
+        echo "Cadastrado com Sucesso!";
+    }
+}
 
 
 
-// //----------------------- CRIPTOGRAFAR SENHA ---------------------------//
-// function passwordCryp($value)
-// {
-//     $passwordCryp = hash('sha256', $value);
-//     return $passwordCryp;
-// }
+//----------------------- CRIPTOGRAFAR SENHA ---------------------------//
+function passwordCryp($value)
+{
+    $passwordCryp = hash('sha256', $value);
+    return $passwordCryp;
+}
 
 //----------------------- DELETAR USUÁRIO ---------------------------//
-
-// function deleteUser($values){
-
-// }
-
-//----------------------- UPDATE USUÁRIO ---------------------------//
 
 function deleteUser($value)
 {
     $conn = connBanco();
-    $dados = $conn->prepare("DELETE FROM users WHERE id = :id");    
+    $dados = $conn->prepare("DELETE FROM users WHERE id = :id");
     $dados->bindValue(":id", $value);
     $dados->execute();
 }
+
+//----------------------- UPDATE USUÁRIO ---------------------------//
