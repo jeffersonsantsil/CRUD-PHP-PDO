@@ -58,6 +58,8 @@ function passwordCryp($value)
 
 //----------------------- DELETAR USUÁRIO ---------------------------//
 
+// deleteUser(1); //Teste da função
+
 function deleteUser($value)
 {
     $conn = connBanco();
@@ -67,3 +69,15 @@ function deleteUser($value)
 }
 
 //----------------------- UPDATE USUÁRIO ---------------------------//
+
+//editUser(1,'email','jefferson@gmail.com'); //Teste da função
+
+function editUser($id, $campo, $valor)
+{
+    $conn = connBanco();
+    $dados = $conn->prepare("UPDATE users SET $campo = :valor WHERE id = :id");
+    $dados->bindValue(":id", $id);
+    $dados->bindValue(":valor", $valor);
+    $dados->execute();
+
+}
